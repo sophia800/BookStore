@@ -11,8 +11,6 @@
             author.SetName ( "some name" );
 
             author.SetBiography ( "some bio" );
-
-
         }
     }
 }
