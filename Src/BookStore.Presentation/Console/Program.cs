@@ -16,29 +16,29 @@
       
             Book book = new Book ();
 
-            book.SetAuthor ( "some name", author);
+			book.SetAuthor ( "some name" , "some bio" );
 
 
-            Reader reader = new Reader ();
+			Reader reader = new Reader ();
 
-            reader.SetName = ( "some name" );
+            reader.SetName ( "some name" );
 
-            reader.SetEmail = ( "some email" );
+            reader.SetEmail ( "some email" );
 
-            reader.SetCity = ( "some city" );
+            reader.SetCity ( "some city" );
 
-            reader.SetStreet = ( "some street" );
+            reader.SetStreet ( "some street" );
             
-            reader.SetHouse = ( "some house" );
+            reader.SetHouse ( "some house" );
 
 
             Order order = new Order ();
 
-            order.SetBook = ( "some book" );
+            order.SetBook ( "some book" );
 
-            order.SetReader = ( "some reader" );
+            order.SetReader ( "some reader" );
             
-            order.SetDate = ( "some date" );
+            order.SetDate ( "some date" );
 
 
 			System.Console.WriteLine ( "All work" );
