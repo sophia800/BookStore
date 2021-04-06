@@ -3,10 +3,15 @@ namespace BookStore.Domain.Models
     public class Reader
     {
         private string _name;
+      
         private string _email;
+      
         private string _city;
+      
         private string _street;
+      
         private string _house;
+      
         public void SetName ( string name )
         {
             _name = name;
@@ -16,6 +21,7 @@ namespace BookStore.Domain.Models
         {
             return _name;
         }
+        
         public void SetEmail ( string email )
         {
             _email = email;

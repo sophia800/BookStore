@@ -1,16 +1,20 @@
 ﻿namespace BookStore.Presentation.Console
 {
-    using Domain.Models;
+	using Domain.Models;
 
-    public class Program
-    {
-        public static void Main ()
-        {
-            Author author = new Author ();
+	public class Program
+	{
+		public static void Main ()
+		{
+			Author author = new Author ();
 
-            author.SetName ( "some name" );
+			author.SetName ( "some name" );
 
-            author.SetBiography ( "some bio" );
-        }
-    }
+			author.SetBiography ( "some bio" );
+
+			Book book = new Book ();
+
+			System.Console.WriteLine ( "All work" );
+		}
+	}
 }
