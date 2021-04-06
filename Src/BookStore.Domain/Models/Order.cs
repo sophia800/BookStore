@@ -6,10 +6,10 @@ namespace BookStore.Domain.Models
         
         private Reader _reader;
 
-		private Date _date;
+		private string _date;
 
-		 public void SetDate ( string date )
-        {
+		public void SetDate ( string date )
+		{
             _date = date;
         }
 
@@ -17,6 +17,7 @@ namespace BookStore.Domain.Models
         {
             return _date;
         }
+
 
 
 		public void SetBook ( string author )
