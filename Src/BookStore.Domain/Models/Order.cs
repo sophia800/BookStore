@@ -6,7 +6,18 @@ namespace BookStore.Domain.Models
         
         private Reader _reader;
 
-		private string _date;
+		private Date _date;
+
+		 public void SetDate ( string date )
+        {
+            _date = date;
+        }
+
+        public string GetDate ()
+        {
+            return _date;
+        }
+
 
 		public void SetBook ( string author )
 		{
