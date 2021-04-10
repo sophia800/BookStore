@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Src\BookStore.Presentation"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Src\BookStore.Domain", "Src\BookStore.Domain\BookStore.Domain.csproj", "{6539E44F-B9C2-413E-A57C-1077E9B3DA55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Persistence", "BookStore.Persistence\BookStore.Persistence.csproj", "{AADA56D4-F5A9-4FFB-991C-24ABAE2FCCD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Src\BookStore.Persistence", "Src\BookStore.Persistence\BookStore.Persistence.csproj", "{AADA56D4-F5A9-4FFB-991C-24ABAE2FCCD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
