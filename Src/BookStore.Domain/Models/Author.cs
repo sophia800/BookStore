@@ -1,29 +1,31 @@
+using System;
+
 namespace BookStore.Domain.Models
 {
-    public class Author
-    {
-        private string _name;
+	public class Author
+	{
+		private string _name;
 
-        private string _biography;
+		private string _biography;
 
-        public void SetName ( string name )
-        {
-            _name = name;
-        }
+		public string Name
+		{
+			get { return _name; }
+			set { _name = value; }
+		}
 
-        public string GetName ()
-        {
-            return _name;
-        }
+		public string Biography
+		{
+			get { return _biography; }
+			set { _biography = value; }
+		}
 
-        public void SetBiography ( string biography )
-        {
-            _biography = biography;
-        }
+		public Author ( string name )
+		{
+			if ( string.IsNullOrEmpty ( name ) )
+				throw new ArgumentException ( "Name is null or empty" , nameof ( name ) );
 
-        public string GetBiography ()
-        {
-            return _biography;
-        }
-    }
+			_name = name;
+		}
+	}
 }

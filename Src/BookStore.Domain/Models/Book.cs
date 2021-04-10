@@ -1,16 +1,27 @@
 namespace BookStore.Domain.Models
 {
-    public class Book
-    {
-        private Author _author;
+	public class Book
+	{
+		private Author _author;
 
-        public void SetAuthor ( string name, string biography )
-        {
-            _author = new Author ();
+		private string _title;
 
-            _author.SetName ( name );
+		public Author Author
+		{
+			get { return _author; }
+			set { _author = value; }
+		}
 
-            _author.SetBiography ( biography );
-        }
-    }
+		public string Title
+		{
+			get { return _title; }
+			set { _title = value; }
+		}
+
+		//TODO: Finish me
+		public Book ( string title )
+		{
+
+		}
+	}
 }
