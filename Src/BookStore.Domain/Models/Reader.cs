@@ -1,62 +1,53 @@
+using System;
+
 namespace BookStore.Domain.Models
 {
-	public class Reader
-	{
-		private string _name;
+    public class Reader
+    {
+        private string _name;
 
-		private string _email;
+        private string _email;
 
-		private string _city;
+        private string _city;
 
-		private string _street;
+        private string _street;
 
-		private string _house;
+        private string _house;
 
-		public void SetName ( string name )
-		{
-			_name = name;
-		}
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
 
-		public string GetName ()
-		{
-			return _name;
-		}
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
 
-		public void SetEmail ( string email )
-		{
-			_email = email;
-		}
+        public string City
+        {
+            get { return _city; }
+            set { _city = value; }
+        }
 
-		public string GetEmail ()
-		{
-			return _email;
-		}
-		public void SetCity ( string city )
-		{
-			_city = city;
-		}
+        public string Street
+        {
+            get { return _street; }
+            set { _street = value; }
+        }
 
-		public string GetCity ()
-		{
-			return _city;
-		}
-		public void SetStreet ( string street )
-		{
-			_street = street;
-		}
+        public string House
+        {
+            get { return _house; }
+            set { _house = value; }
+        }
 
-		public string GetStreet ()
-		{
-			return _street;
-		}
-		public void SetHouse ( string house )
-		{
-			_house = house;
-		}
-
-		public string GetHouse ()
-		{
-			return _house;
-		}
-	}
+        public Reader ( string name , string email , string city , string street , string house )
+        {
+            if ( string.IsNullOrEmpty ( name ) )
+                throw new ArgumentException ( "Name is null or empty" , nameof ( name ) );
+        }
+    }
 }
