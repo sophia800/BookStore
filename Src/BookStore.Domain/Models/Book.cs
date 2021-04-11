@@ -23,11 +23,18 @@ namespace BookStore.Domain.Models
             set { _title = value; }
         }
 
-        //TODO: Finish me
-        public Book ( string title )
+        public Book ()
+        { }
+
+        public Book ( string title , Author author )
         {
             if ( string.IsNullOrEmpty ( title ) )
                 throw new ArgumentException ( "Title is null or empty" , nameof ( title ) );
+
+            if ( author is null )
+                throw new ArgumentNullException ( nameof ( author ) , "Author is null" );
+
+            _author = author;
             _title = title;
         }
     }

@@ -47,12 +47,26 @@ namespace BookStore.Domain.Models
             set { _house = value; }
         }
 
-        //FIXME: Assign all method parameters, with validations
+        public Reader ()
+        { }
+
         public Reader ( string name , string email , string city , string street , string house )
         {
-            if ( string.IsNullOrEmpty ( name , email , city , street , house )
+            if ( string.IsNullOrEmpty ( name ) )
+                throw new ArgumentException ( "Name is null or empty" , nameof ( name ) );
 
-                throw new ArgumentException ( "Name is null or empty" , nameof ( name , email , city , street , house ) );
+            if ( string.IsNullOrEmpty ( email ) )
+                throw new ArgumentException ( "Email is null or empty" , nameof ( email ) );
+
+            if ( string.IsNullOrEmpty ( city ) )
+                throw new ArgumentException ( "City is null or empty" , nameof ( city ) );
+
+            if ( string.IsNullOrEmpty ( street ) )
+                throw new ArgumentException ( "Street is null or empty" , nameof ( street ) );
+
+            if ( string.IsNullOrEmpty ( house ) )
+                throw new ArgumentException ( "House is null or empty" , nameof ( house ) );
+
             _name = name;
             _email = email;
             _city = city;
