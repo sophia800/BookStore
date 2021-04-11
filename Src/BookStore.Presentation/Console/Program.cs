@@ -1,16 +1,19 @@
 ﻿namespace BookStore.Presentation.Console
 {
-    using System;
-    using Domain.Models;
+	using BookStore.Domain.Models;
+	using BookStore.Persistence.Services;
+	using BookStore.Persistence.UnitOfWork;
 
-    public static class Program
-    {
-        public static void Main ()
-        {
-            Author author = new Author ( "some name" )
-            {
-                Biography = "some bio"
-            };
-        }
-    }
+	public static class Program
+	{
+		public static void Main ()
+		{
+			var data = new DataBaseManager ();
+
+			var unitOfWork = new InMemoryUnitOfWork ( data );
+
+			var test = unitOfWork.Repository<Author> ()
+				.GetAll ();
+		}
+	}
 }

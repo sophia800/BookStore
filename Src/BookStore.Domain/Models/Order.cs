@@ -1,53 +1,61 @@
-using System;
-
 namespace BookStore.Domain.Models
 {
-    public class Order
-    {
-        private Book _book;
+	using System;
+	using Interfaces;
 
-        private Reader _reader;
+	public class Order : IModel
+	{
+		private Book _book;
 
-        private string _date;
+		private Reader _reader;
 
-        public string Date
-        {
-            get { return _date; }
-            set { _date = value; }
-        }
+		private string _date;
 
-        public Book Book
-        {
-            set { _book = value; }
-        }
+		public Guid Id { get; } = Guid.NewGuid ();
 
-        public Reader Reader
-        {
-            set { _reader = value; }
-        }
+		public string Date
+		{
+			get { return _date; }
+			set { _date = value; }
+		}
 
-        public Order ( Book book )
-        {
-            if ( book == null )
-                throw new ArgumentNullException ( nameof ( book ) , "Book is null" );
+		//FIXME: Add get property
+		public Book Book
+		{
+			set { _book = value; }
+		}
 
-            _book = book;
-        }
+		//FIXME: Add get property
+		public Reader Reader
+		{
+			set { _reader = value; }
+		}
 
-        public Order ( Reader reader )
-        {
-            if ( reader == null )
-                throw new ArgumentNullException ( nameof ( reader ) , "Reader is null" );
+		//FIXME: Create only one constructor, than add all parameters to it
+		public Order ( Book book )
+		{
+			if ( book == null )
+				throw new ArgumentNullException ( nameof ( book ) , "Book is null" );
 
-            _reader = reader;
-        }
+			_book = book;
+		}
 
-        public Order ( string date )
-        {
-            if ( string.IsNullOrEmpty ( date ) )
-                throw new ArgumentException ( "Date is null or empty" , nameof ( date ) );
+		//FIXME: Remove this constructor
+		public Order ( Reader reader )
+		{
+			if ( reader == null )
+				throw new ArgumentNullException ( nameof ( reader ) , "Reader is null" );
 
-            _date = date;
-        }
-    }
+			_reader = reader;
+		}
+
+		//FIXME: Remove this constructor
+		public Order ( string date )
+		{
+			if ( string.IsNullOrEmpty ( date ) )
+				throw new ArgumentException ( "Date is null or empty" , nameof ( date ) );
+
+			_date = date;
+		}
+	}
 }

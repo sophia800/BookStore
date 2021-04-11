@@ -1,30 +1,33 @@
-using System;
-
 namespace BookStore.Domain.Models
 {
-    public class Book
-    {
-        private Author _author;
+	using System;
+	using Interfaces;
 
-        private string _title;
+	public class Book : IModel
+	{
+		private Author _author;
 
-        public Author Author
-        {
-            get { return _author; }
-            set { _author = value; }
-        }
+		private string _title;
 
-        public string Title
-        {
-            get { return _title; }
-            set { _title = value; }
-        }
+		public Guid Id { get; } = Guid.NewGuid ();
 
-        //TODO: Finish me
-        public Book ( string title )
-        {
-            if ( string.IsNullOrEmpty ( title ) )
-                throw new ArgumentException ( "Title is null or empty" , nameof ( title ) );
-        }
-    }
+		public Author Author
+		{
+			get { return _author; }
+			set { _author = value; }
+		}
+
+		public string Title
+		{
+			get { return _title; }
+			set { _title = value; }
+		}
+
+		//TODO: Finish me
+		public Book ( string title )
+		{
+			if ( string.IsNullOrEmpty ( title ) )
+				throw new ArgumentException ( "Title is null or empty" , nameof ( title ) );
+		}
+	}
 }
