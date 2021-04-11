@@ -19,7 +19,7 @@ namespace BookStore.Persistence.Services
 				EnsureDataBaseFilesCreated ( modelsType );
 		}
 
-		public static string FormFullPathToDirectory ( string dbDirectoryPath ) =>
+		private static string FormFullPathToDirectory ( string dbDirectoryPath ) =>
 			Path.Combine (
 				path1: Directory.GetCurrentDirectory () ,
 				path2: dbDirectoryPath );
