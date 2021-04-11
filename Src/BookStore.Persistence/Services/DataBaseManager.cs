@@ -3,7 +3,6 @@ namespace BookStore.Persistence.Services
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
-	using System.Reflection;
 
 	public sealed class DataBaseManager
 	{
