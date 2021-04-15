@@ -9,26 +9,26 @@ namespace BookStore.Domain.Models
 
         private Reader _reader;
 
-        private string _date;
+        private string _date; //2020-01-23
 
         public Guid Id { get; } = Guid.NewGuid ();
 
         public string Date
         {
-            get { return _date; }
-            set { _date = value; }
+            get => _date;
+            set => _date = value;
         }
 
         public Book Book
         {
-            get { return _book; }
-            set { _book = value; }
+            get => _book;
+            set => _book = value;
         }
 
         public Reader Reader
         {
-            get { return _reader; }
-            set { _reader = value; }
+            get => _reader;
+            set => _reader = value;
         }
 
         public Order ()

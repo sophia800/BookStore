@@ -1,0 +1,11 @@
+[
+  {
+    "id": "69139094-d062-4fa2-abe4-84d2262b21a4",
+    "title": "some title",
+    "author": {
+      "id": "c5ce2441-8460-4387-bbc9-c5bb4c3fdcb6",
+      "name": "test",
+      "biography": "tew"
+    }
+  }
+]

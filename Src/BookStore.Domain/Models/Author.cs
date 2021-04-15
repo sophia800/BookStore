@@ -3,7 +3,7 @@ namespace BookStore.Domain.Models
     using System;
     using Interfaces;
 
-    public class Author : IModel
+    public class Author : IModel, IPerson
     {
         private string _name;
 
@@ -13,14 +13,14 @@ namespace BookStore.Domain.Models
 
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get => _name;
+            set => _name = value;
         }
 
         public string Biography
         {
-            get { return _biography; }
-            set { _biography = value; }
+            get => _biography;
+            set => _biography = value;
         }
 
         public Author ()

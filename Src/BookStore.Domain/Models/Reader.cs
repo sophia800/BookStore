@@ -3,7 +3,7 @@ namespace BookStore.Domain.Models
     using System;
     using Interfaces;
 
-    public class Reader : IModel
+    public class Reader : IPerson, IModel
     {
         private string _name;
 
@@ -19,32 +19,32 @@ namespace BookStore.Domain.Models
 
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get => _name;
+            set => _name = value;
         }
 
         public string Email
         {
-            get { return _email; }
-            set { _email = value; }
+            get => _email;
+            set => _email = value;
         }
 
         public string City
         {
-            get { return _city; }
-            set { _city = value; }
+            get => _city;
+            set => _city = value;
         }
 
         public string Street
         {
-            get { return _street; }
-            set { _street = value; }
+            get => _street;
+            set => _street = value;
         }
 
         public string House
         {
-            get { return _house; }
-            set { _house = value; }
+            get => _house;
+            set => _house = value;
         }
 
         public Reader ()

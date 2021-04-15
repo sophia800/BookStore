@@ -13,14 +13,14 @@ namespace BookStore.Domain.Models
 
         public Author Author
         {
-            get { return _author; }
-            set { _author = value; }
+            get => _author;
+            set => _author = value;
         }
 
         public string Title
         {
-            get { return _title; }
-            set { _title = value; }
+            get => _title;
+            set => _title = value;
         }
 
         public Book ()
