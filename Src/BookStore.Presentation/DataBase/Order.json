@@ -1,23 +1,149 @@
 [
   {
-    "id": "9b7ba56b-b62c-4fee-a088-f7315b758a29",
+    "id": "338272c8-c907-4640-b7bb-f5810b34c49b",
+    "date": "2021-04-18",
     "book": {
-      "id": "69139094-d062-4fa2-abe4-84d2262b21a4",
-      "title": "some title",
+      "id": "324db4ff-aa25-455c-bbc4-4bf614df2de7",
       "author": {
-        "id": "c5ce2441-8460-4387-bbc9-c5bb4c3fdcb6",
-        "name": "test",
-        "biography": "tew"
-      }
+        "id": "1107f3b1-cb23-4227-95fa-6a56e59ec73a",
+        "name": "Some name 3",
+        "biography": "some bio 3"
+      },
+      "title": "Some title 1"
     },
     "reader": {
-      "id": "66445687-06e9-4e7d-9511-c0e84f6989f0",
-      "name": "test",
-      "email": "tew",
-      "city": "test",
-      "street": "test",
-      "house": "test"
+      "id": "4b9243aa-2e76-4f2f-91ec-b924b0bcdb69",
+      "name": "Reader 1",
+      "email": "Some email 1",
+      "city": "Some city 1",
+      "street": "Some street 1",
+      "house": "Some house 1"
+    }
+  },
+  {
+    "id": "feb50dd4-e89f-4bad-98be-9ad7b74692f9",
+    "date": "2021-04-18",
+    "book": {
+      "id": "3fa01949-cc11-4be1-ad8c-591cf88128d2",
+      "author": {
+        "id": "1107f3b1-cb23-4227-95fa-6a56e59ec73a",
+        "name": "Some name 3",
+        "biography": "some bio 3"
+      },
+      "title": "Some title 2"
     },
-    "date": "test"
+    "reader": {
+      "id": "4b9243aa-2e76-4f2f-91ec-b924b0bcdb69",
+      "name": "Reader 1",
+      "email": "Some email 1",
+      "city": "Some city 1",
+      "street": "Some street 1",
+      "house": "Some house 1"
+    }
+  },
+  {
+    "id": "09b6d01c-0353-4d98-84fa-7fd1b9019f77",
+    "date": "2021-04-18",
+    "book": {
+      "id": "64584141-c544-44e0-a28a-1cfc3a42a501",
+      "author": {
+        "id": "81b0bd41-346b-440e-bbad-3e6d0f5e612f",
+        "name": "Some name 1",
+        "biography": "some bio 1"
+      },
+      "title": "Some title 3"
+    },
+    "reader": {
+      "id": "4b9243aa-2e76-4f2f-91ec-b924b0bcdb69",
+      "name": "Reader 1",
+      "email": "Some email 1",
+      "city": "Some city 1",
+      "street": "Some street 1",
+      "house": "Some house 1"
+    }
+  },
+  {
+    "id": "fa59ff3b-7d9f-4fc0-a685-fe21c53469f4",
+    "date": "2021-04-18",
+    "book": {
+      "id": "aadfb278-13dd-4db8-9700-4f76b60160a6",
+      "author": {
+        "id": "25fedd3d-5ee7-43df-a99e-77dfc87f56da",
+        "name": "Some name 4",
+        "biography": "some bio 4"
+      },
+      "title": "Some title 4"
+    },
+    "reader": {
+      "id": "5ea5db9c-4b8d-44e5-b0d1-109a55e5e72a",
+      "name": "Reader 2",
+      "email": "Some email 2",
+      "city": "Some city 2",
+      "street": "Some street 2",
+      "house": "Some house 2"
+    }
+  },
+  {
+    "id": "fb39b788-0e4c-4296-abc1-c46d995324da",
+    "date": "2021-04-18",
+    "book": {
+      "id": "aadfb278-13dd-4db8-9700-4f76b60160a6",
+      "author": {
+        "id": "25fedd3d-5ee7-43df-a99e-77dfc87f56da",
+        "name": "Some name 4",
+        "biography": "some bio 4"
+      },
+      "title": "Some title 4"
+    },
+    "reader": {
+      "id": "7e74b519-8f0b-4675-b971-293e67e19ecf",
+      "name": "Reader 3",
+      "email": "Some email 3",
+      "city": "Some city 3",
+      "street": "Some street 3",
+      "house": "Some house 3"
+    }
+  },
+  {
+    "id": "ac02f1eb-f097-426e-ad31-5b7f13898a01",
+    "date": "2021-04-18",
+    "book": {
+      "id": "3528d413-6460-4c28-b5fb-056bde0e8aa5",
+      "author": {
+        "id": "6e3f26ba-169c-40c5-8d4e-d9cb5609151a",
+        "name": "Some name 2",
+        "biography": "some bio 2"
+      },
+      "title": "Some title 5"
+    },
+    "reader": {
+      "id": "549f8be0-9e76-45f3-8e3c-a6a9739a4f52",
+      "name": "Reader 4",
+      "email": "Some email 4",
+      "city": "Some city 4",
+      "street": "Some street 4",
+      "house": "Some house 4"
+    }
+  },
+  {
+    "id": "a8f8c871-72cc-4ecb-a2af-067f6b0a6838",
+    "date": "2021-04-18",
+    "book": {
+      "id": "3528d413-6460-4c28-b5fb-056bde0e8aa5",
+      "author": {
+        "id": "6e3f26ba-169c-40c5-8d4e-d9cb5609151a",
+        "name": "Some name 2",
+        "biography": "some bio 2"
+      },
+      "title": "Some title 5"
+    },
+    "reader": {
+      "id": "e8f16dd9-77ea-4b3f-a37e-2630531b7f56",
+      "name": "Reader 5",
+      "email": "Some email 5",
+      "city": "Some city 5",
+      "street": "Some street 5",
+      "house": "Some house 5"
+    }
   }
 ]

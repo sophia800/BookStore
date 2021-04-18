@@ -3,7 +3,6 @@ namespace BookStore.Persistence.Services
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
-	using System.Reflection;
 
 	public sealed class DataBaseManager
 	{
@@ -21,9 +20,8 @@ namespace BookStore.Persistence.Services
 
 		public static string FormFullPathToDirectory ( string dbDirectoryPath ) =>
 			Path.Combine (
-				path1: "..\\" ,
-				path2: Directory.GetCurrentDirectory () ,
-				path3: dbDirectoryPath );
+				Directory.GetCurrentDirectory () ,
+				dbDirectoryPath );
 
 		public void EnsureDataBaseFilesCreated ( IEnumerable<Type> modelsType )
 		{

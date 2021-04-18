@@ -1,41 +1,14 @@
 namespace BookStore.Domain.Models
 {
-    using System;
-    using Interfaces;
+	using System;
+	using Interfaces;
 
-    public class Author : IModel, IPerson
-    {
-        private string _name;
+	public class Author : IModel, IPerson
+	{
+		public Guid Id { get; } = Guid.NewGuid ();
 
-        private string _biography;
+		public string Name { get; set; }
 
-        public Guid Id { get; } = Guid.NewGuid ();
-
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
-
-        public string Biography
-        {
-            get => _biography;
-            set => _biography = value;
-        }
-
-        public Author ()
-        { }
-
-        public Author ( string name , string biography )
-        {
-            if ( string.IsNullOrEmpty ( name ) )
-                throw new ArgumentException ( "Name is null or empty" , nameof ( name ) );
-
-            if ( string.IsNullOrEmpty ( biography ) )
-                throw new ArgumentException ( "Biography is null or empty" , nameof ( biography ) );
-
-            _name = name;
-            _biography = biography;
-        }
-    }
+		public string Biography { get; set; }
+	}
 }

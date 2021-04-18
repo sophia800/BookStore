@@ -1,11 +1,56 @@
 [
   {
-    "id": "69139094-d062-4fa2-abe4-84d2262b21a4",
-    "title": "some title",
+    "id": "324db4ff-aa25-455c-bbc4-4bf614df2de7",
     "author": {
-      "id": "c5ce2441-8460-4387-bbc9-c5bb4c3fdcb6",
-      "name": "test",
-      "biography": "tew"
-    }
+      "id": "1107f3b1-cb23-4227-95fa-6a56e59ec73a",
+      "name": "Some name 3",
+      "biography": "some bio 3"
+    },
+    "title": "Some title 1"
+  },
+  {
+    "id": "3fa01949-cc11-4be1-ad8c-591cf88128d2",
+    "author": {
+      "id": "1107f3b1-cb23-4227-95fa-6a56e59ec73a",
+      "name": "Some name 3",
+      "biography": "some bio 3"
+    },
+    "title": "Some title 2"
+  },
+  {
+    "id": "64584141-c544-44e0-a28a-1cfc3a42a501",
+    "author": {
+      "id": "81b0bd41-346b-440e-bbad-3e6d0f5e612f",
+      "name": "Some name 1",
+      "biography": "some bio 1"
+    },
+    "title": "Some title 3"
+  },
+  {
+    "id": "aadfb278-13dd-4db8-9700-4f76b60160a6",
+    "author": {
+      "id": "25fedd3d-5ee7-43df-a99e-77dfc87f56da",
+      "name": "Some name 4",
+      "biography": "some bio 4"
+    },
+    "title": "Some title 4"
+  },
+  {
+    "id": "3528d413-6460-4c28-b5fb-056bde0e8aa5",
+    "author": {
+      "id": "6e3f26ba-169c-40c5-8d4e-d9cb5609151a",
+      "name": "Some name 2",
+      "biography": "some bio 2"
+    },
+    "title": "Some title 5"
+  },
+  {
+    "id": "479eab4d-b05e-4172-bac1-030a73c7ff4d",
+    "author": {
+      "id": "81b0bd41-346b-440e-bbad-3e6d0f5e612f",
+      "name": "Some name 1",
+      "biography": "some bio 1"
+    },
+    "title": "some title"
   }
 ]

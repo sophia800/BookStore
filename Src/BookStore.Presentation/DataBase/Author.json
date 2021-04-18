@@ -1,0 +1,22 @@
+[
+  {
+    "id": "81b0bd41-346b-440e-bbad-3e6d0f5e612f",
+    "name": "Some name 1",
+    "biography": "some bio 1"
+  },
+  {
+    "id": "6e3f26ba-169c-40c5-8d4e-d9cb5609151a",
+    "name": "Some name 2",
+    "biography": "some bio 2"
+  },
+  {
+    "id": "1107f3b1-cb23-4227-95fa-6a56e59ec73a",
+    "name": "Some name 3",
+    "biography": "some bio 3"
+  },
+  {
+    "id": "25fedd3d-5ee7-43df-a99e-77dfc87f56da",
+    "name": "Some name 4",
+    "biography": "some bio 4"
+  }
+]

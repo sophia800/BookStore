@@ -1,10 +1,42 @@
 [
   {
-    "id": "66445687-06e9-4e7d-9511-c0e84f6989f0",
-    "name": "test",
-    "email": "tew",
-    "city": "test",
-    "street": "test",
-    "house": "test"
+    "id": "4b9243aa-2e76-4f2f-91ec-b924b0bcdb69",
+    "name": "Reader 1",
+    "email": "Some email 1",
+    "city": "Some city 1",
+    "street": "Some street 1",
+    "house": "Some house 1"
+  },
+  {
+    "id": "5ea5db9c-4b8d-44e5-b0d1-109a55e5e72a",
+    "name": "Reader 2",
+    "email": "Some email 2",
+    "city": "Some city 2",
+    "street": "Some street 2",
+    "house": "Some house 2"
+  },
+  {
+    "id": "7e74b519-8f0b-4675-b971-293e67e19ecf",
+    "name": "Reader 3",
+    "email": "Some email 3",
+    "city": "Some city 3",
+    "street": "Some street 3",
+    "house": "Some house 3"
+  },
+  {
+    "id": "549f8be0-9e76-45f3-8e3c-a6a9739a4f52",
+    "name": "Reader 4",
+    "email": "Some email 4",
+    "city": "Some city 4",
+    "street": "Some street 4",
+    "house": "Some house 4"
+  },
+  {
+    "id": "e8f16dd9-77ea-4b3f-a37e-2630531b7f56",
+    "name": "Reader 5",
+    "email": "Some email 5",
+    "city": "Some city 5",
+    "street": "Some street 5",
+    "house": "Some house 5"
   }
 ]

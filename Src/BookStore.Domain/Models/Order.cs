@@ -1,53 +1,18 @@
 namespace BookStore.Domain.Models
 {
-    using System;
-    using Interfaces;
+	using System;
+	using Interfaces;
 
-    public class Order : IModel
-    {
-        private Book _book;
+	public class Order : IModel
+	{
+		private readonly DateTime _dateTime = DateTime.Now;
 
-        private Reader _reader;
+		public Guid Id { get; } = Guid.NewGuid ();
 
-        private string _date; //2020-01-23
+		public string Date { get => _dateTime.ToString ( "yyyy-MM-dd" ); }
 
-        public Guid Id { get; } = Guid.NewGuid ();
+		public Book Book { get; set; }
 
-        public string Date
-        {
-            get => _date;
-            set => _date = value;
-        }
-
-        public Book Book
-        {
-            get => _book;
-            set => _book = value;
-        }
-
-        public Reader Reader
-        {
-            get => _reader;
-            set => _reader = value;
-        }
-
-        public Order ()
-        { }
-
-        public Order ( Book book , Reader reader , string date )
-        {
-            if ( book is null )
-                throw new ArgumentNullException ( nameof ( book ) , "Book is null" );
-
-            if ( reader is null )
-                throw new ArgumentNullException ( nameof ( reader ) , "Reader is null" );
-
-            if ( string.IsNullOrEmpty ( date ) )
-                throw new ArgumentException ( "Date is null or empty" , nameof ( date ) );
-
-            _book = book;
-            _reader = reader;
-            _date = date;
-        }
-    }
+		public Reader Reader { get; set; }
+	}
 }
