@@ -5,7 +5,7 @@ namespace BookStore.Domain.Models
 
 	public class Book : IModel
 	{
-		public Guid Id { get; } = Guid.NewGuid ();
+		public Guid Id { get; set; } = Guid.NewGuid ();
 
 		public Author Author { get; set; }
 

@@ -168,6 +168,46 @@ namespace BookStore.Persistence.Helpers
 				{
 					Book = books.Single ( book => book.Title == "Some title 5" ) ,
 					Reader = readers.Single ( reader => reader.Name == "Reader 5" )
+				} ,
+				new ()
+				{
+					Book = books.Single ( book => book.Title == "Some title 5" ) ,
+					Reader = readers.Single ( reader => reader.Name == "Reader 5" )
+				} ,
+				new ()
+				{
+					Book = books.Single ( book => book.Title == "Some title 2" ) ,
+					Reader = readers.Single ( reader => reader.Name == "Reader 1" )
+				} ,
+				new ()
+				{
+					Book = books.Single ( book => book.Title == "Some title 2" ) ,
+					Reader = readers.Single ( reader => reader.Name == "Reader 1" )
+				} ,
+				new ()
+				{
+					Book = books.Single ( book => book.Title == "Some title 1" ) ,
+					Reader = readers.Single ( reader => reader.Name == "Reader 3" )
+				} ,
+				new ()
+				{
+					Book = books.Single ( book => book.Title == "Some title 5" ) ,
+					Reader = readers.Single ( reader => reader.Name == "Reader 5" )
+				} ,
+				new ()
+				{
+					Book = books.Single ( book => book.Title == "Some title 4" ) ,
+					Reader = readers.Single ( reader => reader.Name == "Reader 4" )
+				} ,
+				new ()
+				{
+					Book = books.Single ( book => book.Title == "Some title 1" ) ,
+					Reader = readers.Single ( reader => reader.Name == "Reader 1" )
+				} ,
+				new ()
+				{
+					Book = books.Single ( book => book.Title == "Some title 3" ) ,
+					Reader = readers.Single ( reader => reader.Name == "Reader 3" )
 				}
 			};
 	}

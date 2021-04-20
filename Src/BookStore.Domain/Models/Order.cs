@@ -7,7 +7,7 @@ namespace BookStore.Domain.Models
 	{
 		private readonly DateTime _dateTime = DateTime.Now;
 
-		public Guid Id { get; } = Guid.NewGuid ();
+		public Guid Id { set; get; } = Guid.NewGuid ();
 
 		public string Date { get => _dateTime.ToString ( "yyyy-MM-dd" ); }
 

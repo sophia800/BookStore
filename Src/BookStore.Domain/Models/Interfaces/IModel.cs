@@ -4,6 +4,6 @@ namespace BookStore.Domain.Models.Interfaces
 
 	public interface IModel
 	{
-		Guid Id { get; }
+		Guid Id { set; get; }
 	}
 }

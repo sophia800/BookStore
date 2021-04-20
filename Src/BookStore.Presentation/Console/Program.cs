@@ -19,7 +19,7 @@
 
 			var libraryApiDecorator = new LibraryApiDecorator ( libraryApi );
 
-			var topBooks = libraryApiDecorator.GetTopBooks (  );
+			var topBooks = libraryApiDecorator.GetTopBooks ();
 
 			var topReaders = libraryApiDecorator.GetTopReaders ();
 
@@ -28,7 +28,7 @@
 
 		public static LibraryApi InitLibraryApi ()
 		{
-			var data = new DataBaseManager ();
+			var data = new DataBaseManager ( "F:\\Mentor\\BookStore\\Src\\BookStore.Presentation" );
 
 			var unitOfWork = new InMemoryUnitOfWork ( data );
 
@@ -50,6 +50,7 @@
 		}
 
 		#region Test
+
 		public static void Test ()
 		{
 			var inputNumbers = new[] { 2 , 3 , 4 , 5 , 6 };
@@ -103,6 +104,7 @@
 					Console.WriteLine ( $"Yeap its {color}" );
 			}
 		}
-		#endregion
+
+		#endregion Test
 	}
 }

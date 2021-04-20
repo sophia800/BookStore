@@ -6,35 +6,21 @@ namespace BookStore.Persistence.Services
 
 	public sealed class DataBaseManager
 	{
+		private const string DbDirectory = "DataBase";
+
 		public string DbDirectoryPath { get; }
 
-		public DataBaseManager ( IEnumerable<Type> modelsType = default , string dbDirectoryPath = "DataBase" )
+		public DataBaseManager ( string dbDirectoryPath )
 		{
 			DbDirectoryPath = FormFullPathToDirectory ( dbDirectoryPath );
 
 			EnsureDataBaseDirectoryCreated ();
-
-			if ( modelsType != null )
-				EnsureDataBaseFilesCreated ( modelsType );
 		}
 
 		public static string FormFullPathToDirectory ( string dbDirectoryPath ) =>
 			Path.Combine (
-				Directory.GetCurrentDirectory () ,
-				dbDirectoryPath );
-
-		public void EnsureDataBaseFilesCreated ( IEnumerable<Type> modelsType )
-		{
-			foreach ( var modelType in modelsType )
-			{
-				var tableName = $"{modelType.Name}.json";
-
-				var fullPathToTableFile = Path.Combine ( DbDirectoryPath , tableName );
-
-				if ( !File.Exists ( fullPathToTableFile ) )
-					File.Create ( fullPathToTableFile );
-			}
-		}
+				dbDirectoryPath ,
+				DbDirectory );
 
 		public void EnsureDataBaseFilesCreated ( params Type[] modelsType )
 		{
@@ -45,7 +31,10 @@ namespace BookStore.Persistence.Services
 				var fullPathToTableFile = Path.Combine ( DbDirectoryPath , tableName );
 
 				if ( !File.Exists ( fullPathToTableFile ) )
-					File.Create ( fullPathToTableFile );
+				{
+					using var _ =
+						new FileStream ( fullPathToTableFile , FileMode.Create , FileAccess.ReadWrite );
+				}
 			}
 		}
 
