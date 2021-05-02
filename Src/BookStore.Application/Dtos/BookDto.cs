@@ -1,4 +1,4 @@
-﻿namespace BookStore.Presentation.Dtos
+﻿namespace BookStore.Application.Dtos
 {
 	using System;
 	using System.Collections.Generic;

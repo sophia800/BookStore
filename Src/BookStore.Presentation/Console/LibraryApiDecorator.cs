@@ -1,94 +1,83 @@
 namespace BookStore.Presentation.Console
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Application;
-    using Dtos;
-    using Domain.Models;
+	using System.Collections.Generic;
+	using System.Linq;
+	using Application;
+	using Dtos;
+	using Domain.Models;
+	using System;
+	using BookStore.Presentation.Dtos;
+	using System.Collections.ObjectModel;
+	using MoreLinq;
 
-    public sealed class LibraryApiDecorator
-    {
-        private readonly LibraryApi _libraryApi;
+	public sealed class LibraryApiDecorator
+	{
+		private readonly LibraryApi _libraryApi;
 
-        public LibraryApiDecorator ( LibraryApi libraryApi )
-        {
-            _libraryApi = libraryApi;
-        }
+		public LibraryApiDecorator ( LibraryApi libraryApi )
+		{
+			_libraryApi = libraryApi;
+		}
 
-        public void Examples ()
-        {
-            //! Grouping
+		public IEnumerable<BookDto> GetTopBooks ( int limit = 1 ) =>
+			_libraryApi.Orders
+				.GroupBy ( order => order.Book.Id )
 
-            //var orders =
-            //	new[]
-            //	{
-            //		new { UserId = "691bff0a-3b31-4d59-8454-a7e9a7e4eaf6", ProductId = "9e1b6bfe-5f03-47e6-8a9f-5faff4dce0eb" },
-            //		new { UserId = "691bff0a-3b31-4d59-8454-a7e9a7e4eaf6", ProductId = "12346bfe-5f03-47e6-8a9f-5faff4dce0eb" },
-            //		new { UserId = "691bff0a-3b31-4d59-8454-a7e9a7e4eaf6", ProductId = "131b6bfe-5f03-47e6-1212-5faff4dce0eb" },
-            //		new { UserId = "691bff0a-3b31-4d59-8454-a7e9a7e4eaf6", ProductId = "11111111-3213-47e6-8a9f-5faff4dce0eb" },
-            //
-            //		new { UserId = "11123123-3b31-4d59-8454-a7e9a7e4eaf6", ProductId = "9e1b6bfe-5f03-47e6-8a9f-5faff4dce0eb" },
-            //	};
-            //
-            //var groupable = orders
-            //	.GroupBy ( customer => customer.UserId )
-            //
-            //	.Select ( gropableOrderCustomers =>
-            //		new
-            //		{
-            //			CusomerId = gropableOrderCustomers.Key ,
-            //
-            //			ProductsId = gropableOrderCustomers.Select ( gropableOrderCustomer => gropableOrderCustomer.ProductId )
-            //		} );
+				.OrderByDescending ( gropableOrders => gropableOrders.Count () )
 
-            //! Sorting
+				.Select ( gropableOrders =>
+					new BookDto
+					{
+						BookId = gropableOrders.Key ,
 
-            //var products =
-            //	new[]
-            //	{
-            //		new { Product = "Apple", Price = 12 , Weight = 123 } ,
-            //		new { Product = "Orange", Price = 4 , Weight = 22 } ,
-            //		new { Product = "Banana", Price = 14 , Weight = 23 } ,
-            //		new { Product = "Milk", Price = 32 , Weight = 12 }
-            //	};
-            //
-            //var sortableProducts =
-            //	products.OrderByDescending ( product => product.Price );
-        }
+						ReadersId =
+							gropableOrders
+								.Select ( order => order.Reader.Id )
+								.Distinct ()
+					} )
 
-        public IEnumerable<object> GetTopBooks ( int limit = 1 ) =>
-          _libraryApi.Orders
-           .GroupBy ( order => order.Book.Id )
+				.Take ( count: limit );
 
-                .OrderByDescending ( gropableOrders => gropableOrders.Count () )
+		public IEnumerable<ReaderDto> GetTopReaders ( int limit = 1 ) =>
+			_libraryApi.Orders
+				.GroupBy ( order => order.Reader.Id )
 
-                .Select ( gropableOrders =>
-                    new
-                    {
-                        BookId = gropableOrders.Key ,
+				.OrderByDescending ( gropableOrders => gropableOrders.Count () )
 
-                        ReadersId = gropableOrders.Select ( order => order.Reader.Id )
-                    } )
+				.Select ( gropableOrders =>
+					new ReaderDto
+					{
+						ReaderId = gropableOrders.Key ,
 
-                .Take ( count: limit );
+						BooksId =
+							gropableOrders
+								.Select ( order => order.Book.Id )
+								.Distinct ()
+					} )
 
-        public IEnumerable<ReaderDto> GetTopReaders ( int limit = 1 ) =>
-            _libraryApi.Orders
-                .GroupBy ( order => order.Reader.Id )
+				.Take ( count: limit );
 
-                .OrderByDescending ( gropableOrders => gropableOrders.Count () )
+		public IEnumerable<Reader> GetReadersOfMostPopularBook ( int limit = 3 )
+		{
+			var topBooks = GetTopBooks ( limit );
 
-                .Select ( gropableOrders =>
-                    new ReaderDto
-                    {
-                        ReaderId = gropableOrders.Key ,
+			var topReadersOfTopBooksIds =
+				topBooks
+					.Select ( topBook => topBook.ReadersId )
+					.SelectMany ( readersId => readersId )
+					.Distinct ();
 
-                        BooksId = gropableOrders.Select ( order => order.Book.Id )
-                    } )
+			return topReadersOfTopBooksIds
+				.Aggregate (
+					new Collection<Reader> () ,
+					( collection , readerId ) =>
+					  {
+						  var reader = _libraryApi.Readers.SingleOrDefault ( reader => reader.Id == readerId );
 
-                .Take ( count: limit );
+						  collection.Add ( reader );
 
-        public IEnumerable<Reader> GetReadersOfMostPopularBook ( int limit = 3 ) =>
-         _libraryApi.Readers;
-    }
+						  return collection;
+					  } );
+		}
+	}
 }

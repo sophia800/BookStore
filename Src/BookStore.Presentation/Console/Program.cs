@@ -1,110 +1,112 @@
 ﻿namespace BookStore.Presentation.Console
 {
-    using System;
-    using System.Linq;
-    using BookStore.Application;
-    using BookStore.Domain.Models;
-    using BookStore.Persistence.Services;
-    using BookStore.Persistence.UnitOfWork;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
+	using System;
+	using System.Linq;
+	using BookStore.Application;
+	using BookStore.Domain.Models;
+	using BookStore.Persistence.Services;
+	using BookStore.Persistence.UnitOfWork;
+	using Newtonsoft.Json;
+	using Newtonsoft.Json.Serialization;
 
-    public static class Program
-    {
-        public static void Main ()
-        {
-            ConfigurationBoostraper ();
+	public static class Program
+	{
+		public static void Main ()
+		{
+			ConfigurationBoostraper ();
 
-            var libraryApi = InitLibraryApi ();
+			var libraryApi = InitLibraryApi ();
 
-            var libraryApiDecorator = new LibraryApiDecorator ( libraryApi );
+			var libraryApiDecorator = new LibraryApiDecorator ( libraryApi );
 
-            var topBooks = libraryApiDecorator.GetTopBooks ();
+			libraryApiDecorator.Examples ();
 
-            var topReaders = libraryApiDecorator.GetTopReaders ();
+			var topBooks = libraryApiDecorator.GetTopBooks ();
 
-            var topReaderBooks = libraryApiDecorator.GetReadersOfMostPopularBook ();
-        }
+			var topReaders = libraryApiDecorator.GetTopReaders ();
 
-        public static LibraryApi InitLibraryApi ()
-        {
-            var data = new DataBaseManager ( "D:\\1_Sof\\BookStore\\Src\\BookStore.Presentation" );
+			var topReaderBooks = libraryApiDecorator.GetReadersOfMostPopularBook ();
+		}
 
-            var unitOfWork = new InMemoryUnitOfWork ( data );
+		public static LibraryApi InitLibraryApi ()
+		{
+			var data = new DataBaseManager ( "D:\\1_Sof\\BookStore\\Src\\BookStore.Presentation" );
 
-            return new LibraryApi ( unitOfWork );
-        }
+			var unitOfWork = new InMemoryUnitOfWork ( data );
 
-        private static void ConfigurationBoostraper ()
-        {
-            JsonConvert.DefaultSettings =
-                () => new ()
-                {
-                    ContractResolver = new CamelCasePropertyNamesContractResolver () ,
-                    DefaultValueHandling = DefaultValueHandling.Include ,
-                    TypeNameHandling = TypeNameHandling.None ,
-                    NullValueHandling = NullValueHandling.Ignore ,
-                    Formatting = Formatting.Indented ,
-                    ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
-                };
-        }
+			return new LibraryApi ( unitOfWork );
+		}
 
-        #region Test
+		private static void ConfigurationBoostraper ()
+		{
+			JsonConvert.DefaultSettings =
+				() => new ()
+				{
+					ContractResolver = new CamelCasePropertyNamesContractResolver () ,
+					DefaultValueHandling = DefaultValueHandling.Include ,
+					TypeNameHandling = TypeNameHandling.None ,
+					NullValueHandling = NullValueHandling.Ignore ,
+					Formatting = Formatting.Indented ,
+					ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
+				};
+		}
 
-        public static void Test ()
-        {
-            var inputNumbers = new [] { 2 , 3 , 4 , 5 , 6 };
+		#region Test
 
-            var colors =
-                new []
-                {
-                    "Green" ,
-                    "Black" ,
-                    "Grey" ,
-                    "Pink" ,
-                    "Red" ,
-                    "Yellow"
-                };
+		public static void Test ()
+		{
+			var inputNumbers = new[] { 2 , 3 , 4 , 5 , 6 };
 
-            var result1 =
-                NumberAccumulation (
-                    accumulationFunc: ( number , accumulationResult ) => accumulationResult - number ,
-                    numbers: inputNumbers );
+			var colors =
+				new[]
+				{
+					"Green" ,
+					"Black" ,
+					"Grey" ,
+					"Pink" ,
+					"Red" ,
+					"Yellow"
+				};
 
-            DoSomething (
-                someAction: number => Console.WriteLine ( number ) ,
-                inputNumbers );
+			var result1 =
+				NumberAccumulation (
+					accumulationFunc: ( number , accumulationResult ) => accumulationResult - number ,
+					numbers: inputNumbers );
 
-            IsRed (
-                isSelectedColor: color => color == "Red" ,
-                colors );
-        }
+			DoSomething (
+				someAction: number => Console.WriteLine ( number ) ,
+				inputNumbers );
 
-        private static int NumberAccumulation ( Func<int , int , int> accumulationFunc , params int [] numbers )
-        {
-            int result = default;
+			IsRed (
+				isSelectedColor: color => color == "Red" ,
+				colors );
+		}
 
-            foreach ( var number in numbers )
-                result = accumulationFunc ( number , result );
+		private static int NumberAccumulation ( Func<int , int , int> accumulationFunc , params int[] numbers )
+		{
+			int result = default;
 
-            return result;
-        }
+			foreach ( var number in numbers )
+				result = accumulationFunc ( number , result );
 
-        public static void DoSomething ( Action<int> someAction , params int [] numbers )
-        {
-            foreach ( var number in numbers )
-                someAction ( number );
-        }
+			return result;
+		}
 
-        public static void IsRed ( Predicate<string> isSelectedColor , params string [] colors )
-        {
-            foreach ( var color in colors )
-            {
-                if ( isSelectedColor ( color ) )
-                    Console.WriteLine ( $"Yeap its {color}" );
-            }
-        }
+		public static void DoSomething ( Action<int> someAction , params int[] numbers )
+		{
+			foreach ( var number in numbers )
+				someAction ( number );
+		}
 
-        #endregion Test
-    }
+		public static void IsRed ( Predicate<string> isSelectedColor , params string[] colors )
+		{
+			foreach ( var color in colors )
+			{
+				if ( isSelectedColor ( color ) )
+					Console.WriteLine ( $"Yeap its {color}" );
+			}
+		}
+
+		#endregion Test
+	}
 }
