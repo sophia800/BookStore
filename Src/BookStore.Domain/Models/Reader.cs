@@ -1,12 +1,10 @@
 namespace BookStore.Domain.Models
 {
-	using System;
+	using System.Collections.Generic;
 	using Interfaces;
 
-	public class Reader : IPerson, IModel
+	public sealed class Reader : BaseModel, IPerson
 	{
-		public Guid Id { set; get; } = Guid.NewGuid ();
-
 		public string Name { get; set; }
 
 		public string Email { get; set; }
@@ -16,5 +14,7 @@ namespace BookStore.Domain.Models
 		public string Street { get; set; }
 
 		public string House { get; set; }
+
+		public HashSet<Order> Orders { get; set; } = new ();
 	}
 }

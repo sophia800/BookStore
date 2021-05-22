@@ -3,11 +3,9 @@ namespace BookStore.Domain.Models
 	using System;
 	using Interfaces;
 
-	public class Order : IModel
+	public sealed class Order : BaseModel
 	{
 		private readonly DateTime _dateTime = DateTime.Now;
-
-		public Guid Id { set; get; } = Guid.NewGuid ();
 
 		public string Date { get => _dateTime.ToString ( "yyyy-MM-dd" ); }
 

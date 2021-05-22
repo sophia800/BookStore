@@ -1,14 +1,14 @@
 namespace BookStore.Domain.Models
 {
-	using System;
+	using System.Collections.Generic;
 	using Interfaces;
 
-	public class Book : IModel
+	public sealed class Book : BaseModel
 	{
-		public Guid Id { get; set; } = Guid.NewGuid ();
-
 		public Author Author { get; set; }
 
 		public string Title { get; set; }
+
+		public HashSet<Order> Orders { get; set; } = new ();
 	}
 }
